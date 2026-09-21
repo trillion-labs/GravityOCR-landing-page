@@ -64,3 +64,16 @@ The hero has one accent exception: the image-to-text line slowly shifts between
 pale blue and lavender over 12 seconds; the local-processing line stays near-white.
 Reduced-motion uses a static gradient, forced-colors uses system text, and browsers
 without text clipping keep a readable solid color. Other headings stay white.
+
+## Browser cache versions
+
+Before committing changes to CSS, JavaScript, or release metadata, run:
+
+```sh
+python3 tools/version-assets.py
+```
+
+This updates all HTML asset references with content hashes. GitHub Pages can
+cache an unchanged asset URL for ten minutes; versioned URLs ensure a newly
+loaded page requests the matching assets. No copied assets or local cache are
+created. Pages already open still need a normal reload to load a new version.
