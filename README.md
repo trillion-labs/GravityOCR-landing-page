@@ -79,3 +79,14 @@ This updates all HTML asset references with content hashes. GitHub Pages can
 cache an unchanged asset URL for ten minutes; versioned URLs ensure a newly
 loaded page requests the matching assets. No copied assets or local cache are
 created. Pages already open still need a normal reload to load a new version.
+
+## Product motion
+
+The preview has a static blue/lavender glow and a 320 ms theme crossfade.
+Only one image load and one fading layer are owned by the preview at a time;
+new choices cancel pending loads, each load has a five-second timeout, and
+errors keep the currently visible image. Pending work is cleaned up on pagehide.
+Sections enter once in 550 ms; chart bars grow once in 750 ms. IntersectionObserver
+unobserves each element after entry. Content stays visible if JavaScript or the
+observer is unavailable. Reduced-motion disables these animations and also
+cancels an active crossfade when the setting changes.

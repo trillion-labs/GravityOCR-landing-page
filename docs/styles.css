@@ -97,3 +97,17 @@ nav a:hover,.language-switch:hover,.method-link:hover,footer a:hover{color:var(-
 @keyframes hero-ink-drift{from{background-position:0% 50%}to{background-position:100% 50%}}
 @media(prefers-reduced-motion:reduce){.hero h1 .hero-ink{animation:none;background-position:50% 50%}}
 @media(forced-colors:active){.hero h1 .hero-ink,.hero h1 .hero-local{background:none;color:CanvasText;-webkit-text-fill-color:CanvasText;animation:none}}
+
+/* Quiet depth around the product, with short, one-time entrance motion. */
+.product-section{position:relative;isolation:isolate}
+.product-section::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-55px -30px 5%;background:radial-gradient(ellipse at 24% 35%,rgba(130,174,245,.09),transparent 57%),radial-gradient(ellipse at 80% 45%,rgba(173,145,235,.08),transparent 57%)}
+.screenshot-link{position:relative}
+.product-preview .preview-previous{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;box-shadow:none}
+.reveal-once{animation:section-arrive 550ms cubic-bezier(.2,.65,.3,1) both}
+.chart-enter .decode-bar{animation:bar-arrive 750ms cubic-bezier(.2,.65,.3,1) both}
+.chart-enter .optimized{animation-delay:90ms}
+@keyframes section-arrive{from{opacity:.35;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bar-arrive{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:700px){.product-section::before{inset:-30px -12px 8%}}
+@media(prefers-reduced-motion:reduce){.reveal-once,.chart-enter .decode-bar{animation:none;transform:none;opacity:1}.preview-previous{display:none!important}}
+@media(forced-colors:active){.product-section::before{display:none}}
