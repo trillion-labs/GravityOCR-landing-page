@@ -59,3 +59,8 @@ Each page has its own canonical URL and reciprocal hreflang links.
 - Selection uses a raised dark surface and an outline; a solid white fill is reserved for primary actions. Unavailable downloads remain outlined and muted.
 
 The shared stylesheet applies these roles to both Korean and English pages.
+
+The hero has one accent exception: the image-to-text line slowly shifts between
+pale blue and lavender over 12 seconds; the local-processing line stays near-white.
+Reduced-motion uses a static gradient, forced-colors uses system text, and browsers
+without text clipping keep a readable solid color. Other headings stay white.

@@ -79,3 +79,21 @@ nav a:hover,.language-switch:hover,.method-link:hover,footer a:hover{color:var(-
 .mini-page>div{border-color:var(--chart-baseline)}
 .text-page{border-color:var(--text)}
 .text-page i{background:var(--text)}
+
+/* One restrained accent, limited to the image-to-text promise. */
+.hero h1 .hero-ink{color:#c4d9ff}
+.hero h1 .hero-local{color:#edf2ff}
+@supports ((background-clip:text) or (-webkit-background-clip:text)){
+  .hero h1 .hero-ink{
+    background-image:linear-gradient(105deg,#b7dcff 0%,#d8c8ff 35%,#c4d9ff 65%,#b7dcff 100%);
+    background-size:200% 100%;
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    animation:hero-ink-drift 12s ease-in-out infinite alternate;
+  }
+}
+@keyframes hero-ink-drift{from{background-position:0% 50%}to{background-position:100% 50%}}
+@media(prefers-reduced-motion:reduce){.hero h1 .hero-ink{animation:none;background-position:50% 50%}}
+@media(forced-colors:active){.hero h1 .hero-ink,.hero h1 .hero-local{background:none;color:CanvasText;-webkit-text-fill-color:CanvasText;animation:none}}
