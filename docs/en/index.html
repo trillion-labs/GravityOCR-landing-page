@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#09090b">
+  <title>Gravity — Documents, ready for what’s next. | Trillion Labs</title>
+  <meta name="description" content="Turn PDFs and images into editable text with Gravity, local OCR for Mac by Trillion Labs.">
+  <meta property="og:title" content="Gravity — Documents, ready for what’s next.">
+  <meta property="og:description" content="From PDFs and images to editable text. Local OCR for Mac by Trillion Labs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trillion-labs.github.io/GravityOCR-landing-page/en/">
+  <link rel="canonical" href="https://trillion-labs.github.io/GravityOCR-landing-page/en/">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../release.js" defer></script><script src="../app.js" defer></script>
+<link rel="alternate" hreflang="ko" href="https://trillion-labs.github.io/GravityOCR-landing-page/">
+<link rel="alternate" hreflang="en" href="https://trillion-labs.github.io/GravityOCR-landing-page/en/">
+<link rel="alternate" hreflang="x-default" href="https://trillion-labs.github.io/GravityOCR-landing-page/">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#top" aria-label="Gravity home">Gravity<span class="brand-separator"></span><span class="byline">TRILLION LABS</span></a>
+      <nav aria-label="Main navigation"><a href="#experience">Explore</a><a class="nav-download" href="#download">Free download <span aria-hidden="true">↘</span></a><a class="language-switch" href="../" lang="ko" hreflang="ko">한국어</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero container" id="top" aria-labelledby="hero-title">
+      <div class="hero-topline"><span>LOCAL OCR. MADE FOR MAC.</span><span class="release-status">Coming soon</span></div>
+      <h1 id="hero-title">Documents,<br><span>ready for what’s next.</span></h1>
+      <div class="hero-bottom">
+        <p>Turn content in PDFs and images<br>into text you can read, edit, and reuse.<br><strong>With Gravity, it starts on your Mac.</strong></p>
+        <div class="hero-action"><a class="button button-silver" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>Download free for Mac</a><span class="compatibility">Apple Silicon · macOS 14 or later</span></div>
+      </div>
+      <a class="hero-speed" href="#speed"><span class="hero-speed-value">1.18<span>s</span></span><span>One-slide processing example<small>M3 Pro · warm development run</small></span><span aria-hidden="true">↘</span></a>
+    </section>
+    <section class="product-section container" id="experience" aria-labelledby="product-title">
+      <div class="preview-toolbar"><h2 id="product-title">A workspace for your documents</h2><div class="theme-switch" role="group" aria-label="Preview theme"><button type="button" data-theme="light" aria-pressed="false">Light</button><button type="button" data-theme="dark" aria-pressed="true">Dark</button></div></div>
+      <figure class="product-preview"><img id="product-image" src="../assets/gravity-dark.png" width="1440" height="900" alt="Gravity dark preview: pages on the left, the source PDF in the center, and extracted text on the right." fetchpriority="high"><figcaption><span>GRAVITY / DOCUMENT WORKSPACE</span><span>Product design preview</span></figcaption></figure>
+    </section>
+    <section class="speed-section container" id="speed" aria-labelledby="speed-title">
+      <div class="speed-heading"><div><p class="eyebrow">BUILT FOR MOMENTUM</p><h2 id="speed-title">Less waiting.<br><span>Keep working.</span></h2></div><p>OCR running on your Mac.<br>A closer look at the work behind the speed.</p></div>
+      <div class="speed-grid">
+        <article class="speed-panel pipeline-panel" aria-labelledby="page-speed-title">
+          <p class="metric-kicker">01 / SLIDE PROCESSING</p><h3 id="page-speed-title">Time to read one slide.</h3>
+          <div class="speed-number">1.18<span>s</span></div>
+          <p class="metric-context">One slide with 12 document regions<br><strong>MacBook Pro M3 Pro · 18GB · one warm run</strong></p>
+          <figure class="pipeline-chart"><figcaption>From document analysis to text generation</figcaption><div class="pipeline-track" role="img" aria-label="Total 1177.58 ms: layout 132.51, vision 240.61, prefill 198.26, decoding 596.06, other 10.14 ms."><span style="--part:132.51" class="phase phase-layout"></span><span style="--part:240.61" class="phase phase-vision"></span><span style="--part:198.26" class="phase phase-prefill"></span><span style="--part:596.06" class="phase phase-decode"></span><span style="--part:10.14" class="phase phase-other"></span></div><dl class="phase-legend"><div><dt><i class="phase-layout"></i>Layout</dt><dd>0.13s</dd></div><div><dt><i class="phase-vision"></i>Vision</dt><dd>0.24s</dd></div><div><dt><i class="phase-prefill"></i>Prefill</dt><dd>0.20s</dd></div><div><dt><i class="phase-decode"></i>Decoding</dt><dd>0.60s</dd></div></dl></figure>
+          <p class="metric-note">A warm development-backend run, not an average or first-run time. Results vary by document and hardware.</p>
+        </article>
+        <article class="speed-panel decode-panel" aria-labelledby="decode-speed-title">
+          <p class="metric-kicker">02 / DECODING EXPERIMENT</p><h3 id="decode-speed-title">Faster text decoding.</h3>
+          <div class="speed-number">3.24<span>×</span></div>
+          <p class="metric-context">Text decoding speedup over the baseline<br><strong>3.22–3.25× across two independent processes</strong></p>
+          <figure class="decode-chart"><figcaption>Time for the same decoding stage <span>Shorter is faster</span></figcaption><div class="decode-row"><div class="decode-row-label"><span>MLX BF16 AR <small>Baseline</small></span><b>877 ms</b></div><div class="decode-track"><span class="decode-bar baseline" style="--length:87.712%"></span></div></div><div class="decode-row"><div class="decode-row-label"><span>MLX Q6 / K16 <small>Optimized</small></span><b>271 ms</b></div><div class="decode-track"><span class="decode-bar optimized" style="--length:27.087%"></span></div></div><div class="chart-axis" aria-hidden="true"><span>0</span><span>0.25</span><span>0.50</span><span>0.75</span><span>1.0s</span></div></figure>
+          <p class="metric-note">A development comparison of decoding only, not total document speed. Diagnostic runs on battery with Chrome activity; further validation is pending.</p>
+        </article>
+      </div>
+      <details class="benchmark-details"><summary>Measurement details and data<span aria-hidden="true">+</span></summary><div class="benchmark-details-body"><div><h4>What the 1.18 seconds covers</h4><p>One warm profile of a slide with 12 regions, recorded on September 11, 2026 on an M3 Pro with 18GB memory. The 1,177.58 ms excludes model download, initial loading, and final app rendering. It is one run, not a five-run average.</p><p>PP-DocLayoutV3 FP32 + MLX Q6/K16. The roughly 10 ms difference between the stage sum and total is counted as other time. Power and background-load conditions were not recorded.</p></div><div><h4>What the 3.24× compares</h4><p>Decoding 59 output tokens from a completed multimodal prefix cache to EOS. The 3.2382 ratio is rounded from the two-process central values: MLX BF16 AR at 877.12 ms and MLX Q6 K16 self-spec at 270.87 ms. Each process ran one warmup and five measurements per method.</p><p>Excludes layout, image loading and resizing, vision encoding, multimodal prefill, and tokenizer decoding. These diagnostic runs used battery power with Chrome active; clean runs on AC power are still needed. This is separate from the 1.18-second profile.</p></div><a class="benchmark-data-link" href="../assets/benchmark-data.json" download>Download measurement data (JSON) ↗</a></div></details>
+    </section>
+    <section class="statement container" aria-labelledby="statement-title"><p class="eyebrow">LESS FRICTION. MORE FOCUS.</p><h2 id="statement-title">From reading,<br><span>to doing.</span></h2><p class="section-intro">From a single captured sentence to a multi-page PDF.<br>Work with the text while keeping the source in view.</p>
+      <div class="feature-grid">
+        <article><span class="feature-number">01 / LOCAL</span><h3>On your Mac.</h3><p>Designed to process documents offline after a one-time model download.</p></article>
+        <article><span class="feature-number">02 / CONTEXT</span><h3>Keep the source close.</h3><p>See the source and extracted text side by side, with less switching back and forth.</p></article>
+        <article><span class="feature-number">03 / FLOW</span><h3>Ready for what’s next.</h3><p>Edit, copy, or export as Markdown to carry your work forward.</p></article>
+      </div>
+    </section>
+    <section class="workflow container" aria-labelledby="workflow-title"><div class="workflow-heading"><p class="eyebrow">A SIMPLE START</p><h2 id="workflow-title">Set up once.<br>Then bring your documents.</h2></div><ol class="steps"><li><span>01</span><div><h3>Get Gravity ready.</h3><p>Download the model from Hugging Face on first launch.</p></div></li><li><span>02</span><div><h3>Open your document.</h3><p>Choose a PDF, PNG, JPEG, or HEIC file.</p></div></li><li><span>03</span><div><h3>Put the text to work.</h3><p>Review the extracted text and take it to your next task.</p></div></li></ol></section>
+    <section class="download-section" id="download" aria-labelledby="download-title"><div class="container download-inner"><div><p class="eyebrow">GRAVITY FOR MAC</p><h2 id="download-title">Good tools.<br>Lighter work.</h2><p>Meet Gravity, free for Mac.</p></div><div class="download-box"><div class="download-meta"><span>macOS</span><span>APPLE SILICON</span></div><h3 id="release-heading">Free download</h3><p id="release-description">We’re preparing the public release.<br>Download it here when it’s ready.</p><button class="button button-silver release-button" id="download-button" type="button" disabled>Download coming soon</button><a id="release-download" class="button button-silver release-button" hidden>Download free for Mac ↓</a><p class="download-requirements">macOS 14 or later · Apple Silicon Mac<br>Internet required for initial model installation</p><p class="release-details" id="release-details" hidden></p></div></div></section>
+    <section class="faq container" aria-labelledby="faq-title"><div><p class="eyebrow">A FEW DETAILS</p><h2 id="faq-title">A few<br>questions?</h2></div><div class="faq-list"><details><summary>Will Gravity be free?<span aria-hidden="true">+</span></summary><p>Yes. Gravity is planned as a free download. The installer will be available above once the public release is ready.</p></details><details><summary>Which Macs will it support?<span aria-hidden="true">+</span></summary><p>We are targeting Apple Silicon (M1 or later) with macOS 14 or later. Final requirements will accompany the public installer.</p></details><details><summary>Does it need an internet connection?<span aria-hidden="true">+</span></summary><p>Internet is required for the initial model download. After installation, document recognition runs on your Mac without sending your documents to an external server.</p></details><details><summary>Are the design and features final?<span aria-hidden="true">+</span></summary><p>Gravity is being prepared for release. The images above are design previews; the shipped interface and features may differ.</p></details></div></section>
+  </main>
+  <footer class="container"><a href="#top" class="footer-brand">Gravity</a><div><a href="https://trillionlabs.co/" target="_blank" rel="noopener noreferrer">Trillion Labs ↗</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="third-party.html">Open source</a></div><p>© <span id="year">2026</span> Trillion Labs</p></footer>
+</body>
+</html>

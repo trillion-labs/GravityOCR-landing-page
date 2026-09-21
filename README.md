@@ -35,3 +35,12 @@ Initially extracted from `apps/landing/dist` in `trillion-labs/ocr-monorepo`.
 Future landing-page edits and publishing belong in this repository;
 the application repository continues to own app code and release artifacts.
 There is no automatic synchronization with the original landing copy.
+
+## Languages
+
+Korean lives in `docs/index.html`; English lives in `docs/en/index.html`.
+Each language includes its own privacy, terms and open-source pages.
+Use the visible language switch to change languages. Shared CSS, JavaScript,
+release metadata and assets stay in `docs/`; `app.js` uses the HTML language
+to localize dynamic text. Update both languages together.
+Each page has its own canonical URL and reciprocal hreflang links.
