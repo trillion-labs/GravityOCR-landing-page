@@ -23,3 +23,59 @@
 .product-preview img{aspect-ratio:1440/900}.hero h1{font-size:clamp(50px,6vw,84px)}.example-label a{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:1000px){.hero h1{font-size:clamp(43px,6.4vw,72px)}}
 @media(max-width:700px){.hero h1{font-size:clamp(34px,7vw,49px)}html[lang=en] .hero h1{font-size:clamp(28px,7.2vw,48px)}}
+
+/* Color roles: white = message/action/result; gray = explanation/context.
+   Surfaces separate content groups; they do not reverse the reading hierarchy. */
+:root{
+  --bg:#0b0b0e;
+  --surface:#141418;
+  --surface-raised:#1c1c22;
+  --line:#303038;
+  --text:#f5f5f7;
+  --text-body:#bcbcc5;
+  --muted:#9797a3;
+  --silver:var(--text);
+  --on-action:#111115;
+  --chart-baseline:#737380;
+}
+/* A heading is one statement: line breaks do not imply lower importance. */
+h1,h2,h3,h1 span,h2 span,.hero-bottom strong,.footer-brand,.speed-number,
+.table-preview td,.formula-preview,.decode-row-label b{color:var(--text)}
+.hero-bottom p,.section-heading>p,.speed-heading>p,.feature-grid p,.steps p,
+.section-intro,.structure-card>p,.download-inner>div>p:last-child,
+.download-box>p,details p,.legal-content p,.legal-content li,
+.decode-row-label,.pipeline-chart figcaption,.decode-chart figcaption{color:var(--text-body)}
+.byline,.compatibility,.preview-toolbar,.preview-toolbar h2,
+.product-preview figcaption,.eyebrow,.feature-number,.metric-kicker,
+.metric-context,.metric-context strong,.speed-number span,.example-label,
+.method-link,.chart-axis,.decode-chart figcaption>span,.decode-row-label small,
+.download-meta,.download-meta .release-status,.download-box .download-requirements,
+.download-box .release-details,.table-preview th,.formula-source,
+.language-switch,footer>div,footer p,summary span{color:var(--muted)}
+/* A solid white fill is reserved for the primary action. */
+.button-silver,.skip-link{background:var(--text);color:var(--on-action)}
+.button-silver:hover:not(:disabled){background:#fff}
+.nav-download{color:var(--text)}
+nav>a:first-child{color:var(--text-body)}
+nav a:hover,.language-switch:hover,.method-link:hover,footer a:hover{color:var(--text)}
+.theme-switch{background:var(--bg);border-color:var(--line)}
+.theme-switch button{color:var(--muted)}
+.theme-switch button[aria-pressed=true]{background:var(--surface-raised);color:var(--text);box-shadow:inset 0 0 0 1px #555561}
+/* Consistent dark surfaces keep the download section within the same system. */
+.speed-panel,.structure-card{background:var(--surface)}
+.speed-grid,.speed-panel+article,.structure-card,.product-preview img,
+.download-meta,.table-preview th,.table-preview td,.formula-source{border-color:var(--line)}
+.download-section{background:var(--surface);color:var(--text);border-block:1px solid var(--line)}
+.download-box{background:var(--surface-raised);color:var(--text);border:1px solid var(--line)}
+.release-button:disabled{background:transparent;color:var(--muted);border-color:#555561}
+.formula-source{background:var(--bg)}
+/* Gray identifies the reference; white identifies the Gravity result. */
+.baseline{background:var(--chart-baseline)}
+.optimized{background:var(--text)}
+.decode-track{background:repeating-linear-gradient(to right,var(--line) 0,var(--line) 1px,transparent 1px,transparent 25%)}
+.page-illustration{color:var(--muted)}
+.mini-page{border-color:var(--chart-baseline)}
+.mini-page i{background:var(--chart-baseline)}
+.mini-page>div{border-color:var(--chart-baseline)}
+.text-page{border-color:var(--text)}
+.text-page i{background:var(--text)}

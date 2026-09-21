@@ -48,3 +48,14 @@ Use the visible language switch to change languages. Shared CSS, JavaScript,
 release metadata and assets stay in `docs/`; `app.js` uses the HTML language
 to localize dynamic text. Update both languages together.
 Each page has its own canonical URL and reciprocal hreflang links.
+
+## Color hierarchy
+
+- Primary white: complete headings, key results, and primary download actions.
+- Body gray: explanations that support the headings.
+- Muted gray: captions, units, requirements, sources, and secondary navigation.
+- Dark surfaces: group cards and the download area without switching color themes.
+- Charts: gray denotes the reference, white the Gravity result. Labels retain the comparison meaning without relying on color alone.
+- Selection uses a raised dark surface and an outline; a solid white fill is reserved for primary actions. Unavailable downloads remain outlined and muted.
+
+The shared stylesheet applies these roles to both Korean and English pages.
