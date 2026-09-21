@@ -2,6 +2,14 @@
 
 Captured on 2026-09-21.
 
+## Current presentation
+
+The main landing preview now uses the original approved design exports,
+`gravity-dark.png` and `gravity-light.png` (1440 × 900), at the user’s request.
+These are labeled as product design previews, not actual screenshots.
+The actual captures documented below remain reference assets; table/equation
+cards retain their actual extraction examples with separate sample PDF links.
+
 ## Actual app screenshots
 
 The four `gravity-{ko,en}-{light,dark}.jpg` files are unretouched native-window
