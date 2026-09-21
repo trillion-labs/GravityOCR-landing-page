@@ -52,3 +52,15 @@ limitations and the unchanged source data remain accessible from benchmark pages
 | `docs/assets/gravity-ko-light.jpg` | `9041e6a7aea8992e4d5437b1968ecf7dfbad63475e43b9e6e64668a4459b1760` |
 | `docs/assets/examples/gravity-sample-en.pdf` | `f524a1f8282758e24b5ed303a83fef0721ba2ad975bb9686731897f247f87594` |
 | `docs/assets/examples/gravity-sample-ko.pdf` | `bdfa3aef1bf7a6e77143563ccc980bc0db6b88ee41f42bf6cef29078ca4870ac` |
+
+## English design previews
+
+The English landing uses `gravity-preview-en-light.png` and
+`gravity-preview-en-dark.png`, exported at 1440 × 900 from English duplicates
+in the original Figma project. The Korean design originals are preserved.
+These are design previews, not actual OCR captures. All 86 text layers in each
+English frame were checked for remaining Hangul, including page thumbnails.
+Original fonts, frame dimensions and styling are retained.
+
+- Light: https://www.figma.com/design/etSjdPRPnAAxqKDzz1atQr?node-id=49-2
+- Dark: https://www.figma.com/design/etSjdPRPnAAxqKDzz1atQr?node-id=49-133

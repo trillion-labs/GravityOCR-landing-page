@@ -25,7 +25,9 @@ release gates pass, configure `docs/release.js` with an HTTPS download URL,
 strict SemVer version, file size and the exact 64-character SHA-256.
 Incomplete metadata keeps downloads disabled.
 
-The main product images are the approved design previews (`gravity-{dark,light}.png`).
+The main product images are approved design previews: Korean uses
+`gravity-{dark,light}.png`; English uses the localized Figma exports
+`gravity-preview-en-{dark,light}.png`.
 The table and equation cards show actual extraction from the sample PDFs in
 `docs/assets/examples/`. Earlier app captures are retained as reference assets.
 See `ASSET_PROVENANCE.md` for their capture details.
