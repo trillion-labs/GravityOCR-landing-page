@@ -21,7 +21,7 @@
     const anchor = document.getElementById('release-download');
     anchor.href = downloadURL.href;
     document.querySelectorAll('[data-release-cta]').forEach(link => {
-      link.textContent = english ? 'Download for Mac →' : 'Mac용 다운로드 →';
+      link.textContent = english ? 'Download' : '다운로드';
     });
     anchor.hidden = false;
     anchor.rel = 'noopener';
