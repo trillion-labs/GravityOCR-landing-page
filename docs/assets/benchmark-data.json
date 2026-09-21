@@ -1,0 +1,100 @@
+{
+  "description": "Development measurements; not a general product speed guarantee. The two headline metrics are separate experiments.",
+  "sources": [
+    {
+      "name": "docr-structured-batched-vision.json",
+      "sha256": "ebe93a8062058cf94509edc7129e8544f35ab36865140c71004ef39d21ce9263"
+    },
+    {
+      "name": "docr-v17-decode-only-summary.json",
+      "sha256": "8e6a8e6a9adcc16bb0aacd8fa58dcc502225395782581993a7fe6e84a61f5cf9"
+    }
+  ],
+  "warm_slide": {
+    "date": "2026-09-11",
+    "machine": "MacBook Pro M3 Pro 18GB",
+    "input": "slide-8.png",
+    "regions": 12,
+    "mode": "PP-DocLayoutV3 FP32 eager MPS + MLX text-Q6 self-spec K16",
+    "profile_ms": {
+      "elapsed": 1177.58,
+      "layout": 132.51,
+      "layout_preprocess": 6.74,
+      "layout_transfer": 0.91,
+      "layout_forward": 111.43,
+      "layout_postprocess": 7.96,
+      "layout_region_build_and_nms": 5.37,
+      "vision_batch": 240.61,
+      "multimodal_prefill": 198.26,
+      "decode": 596.06
+    },
+    "statistic": "single warm end-to-end backend profile, not an average",
+    "excluded": "model download/startup and full UI rendering; power/contention not recorded"
+  },
+  "decode_experiment": {
+    "experiment": "docr-v17-two-process-pure-decode-summary",
+    "status": "CONTENDED_BATTERY_DIAGNOSTIC",
+    "boundary": {
+      "included": "token selection and text decoder forwards from a completed multimodal prefix KV cache through EOS",
+      "excluded": [
+        "PP-DocLayout",
+        "image loading and resize",
+        "vision encoder",
+        "multimodal text prefill",
+        "tokenizer decode"
+      ],
+      "output_tokens": 59,
+      "fresh_prefix_cache_per_method": true,
+      "rotating_method_order": true,
+      "warmups_per_method": 1,
+      "measurements_per_method": 5,
+      "independent_processes": 2
+    },
+    "two_process_central": {
+      "mlx_bf16_ar": {
+        "decode_ms": 877.120854005625,
+        "tokens_per_second": 67.26553100471789,
+        "decoder_forwards": 59
+      },
+      "mlx_bf16_spec_k16": {
+        "decode_ms": 373.9869379969605,
+        "tokens_per_second": 157.7595204688125,
+        "decoder_forwards": 14,
+        "speedup_vs_bf16_ar": 2.3453248359512324
+      },
+      "mlx_bf16_spec_k32": {
+        "decode_ms": 370.2235209966602,
+        "tokens_per_second": 159.36318643712602,
+        "decoder_forwards": 14,
+        "speedup_vs_bf16_ar": 2.3691656641489764
+      },
+      "mlx_q6_ar": {
+        "decode_ms": 488.62908350201906,
+        "tokens_per_second": 120.74598502640337,
+        "decoder_forwards": 59
+      },
+      "mlx_q6_spec_k16": {
+        "decode_ms": 270.86566649813903,
+        "tokens_per_second": 217.82014960690987,
+        "decoder_forwards": 14,
+        "speedup_vs_q6_ar": 1.803953560520289,
+        "speedup_vs_bf16_ar": 3.2382134854719626
+      }
+    },
+    "per_process_best_speedup_vs_bf16_ar": [
+      3.254087027475275,
+      3.222035131833013
+    ],
+    "claim_boundary": {
+      "performance_claim": false,
+      "power": "battery",
+      "external_contention": "Google Chrome renderer used 1.9-4.6GB RSS during the runs",
+      "swapout_guard_passed": true,
+      "interpretation": "The 3.22-3.25x ratio is reproducible as a diagnostic. A clean AC/no-contention repeat is required for an accepted absolute latency claim."
+    },
+    "raw_runs": [
+      "docr-v17-decode-only-contended-run1.json",
+      "docr-v17-decode-only-contended-run2.json"
+    ]
+  }
+}
