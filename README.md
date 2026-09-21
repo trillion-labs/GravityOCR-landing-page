@@ -25,8 +25,10 @@ release gates pass, configure `docs/release.js` with an HTTPS download URL,
 strict SemVer version, file size and the exact 64-character SHA-256.
 Incomplete metadata keeps downloads disabled.
 
-Product images are design previews. Benchmark numbers are development
-measurements with the limitations documented on the page.
+Product images are actual prerelease app screenshots from the sample PDFs
+in `docs/assets/examples/`. See `ASSET_PROVENANCE.md` for capture details.
+Benchmark numbers are selected development measurements; full conditions live
+in `docs/benchmarks.html` and `docs/en/benchmarks.html`.
 Do not commit app binaries, model weights, credentials or private documents.
 
 ## Origin and ownership

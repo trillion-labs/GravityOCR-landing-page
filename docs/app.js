@@ -5,8 +5,9 @@
   const themeButtons = [...document.querySelectorAll('[data-theme]')];
   const setTheme = theme => {
     const light = theme === 'light';
-    image.src = new URL(`gravity-${light ? 'light' : 'dark'}.png`, image.src).href;
-    image.alt = english ? `Gravity ${light ? 'light' : 'dark'} preview: pages on the left, the source PDF in the center, and extracted text on the right.` : `Gravity ${light ? '라이트' : '다크'} 화면. 왼쪽에 페이지 목록, 가운데에 원본 PDF, 오른쪽에 추출 텍스트가 나란히 보입니다.`;
+    image.src = new URL(`gravity-${english ? 'en' : 'ko'}-${light ? 'light' : 'dark'}.jpg`, image.src).href;
+    image.alt = english ? `Gravity ${light ? 'light' : 'dark'} app screenshot: an English PDF beside its extracted text, table, and equation.` : `Gravity ${light ? '라이트' : '다크'} 실제 앱 화면. 한국어 PDF 원본과 추출된 본문, 표, 수식이 나란히 보입니다.`;
+    document.getElementById('screenshot-link').href = image.src;
     themeButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.theme === theme)));
   };
   themeButtons.forEach(button => button.addEventListener('click', () => setTheme(button.dataset.theme)));
@@ -19,6 +20,9 @@
   if (downloadURL && downloadURL.protocol === 'https:' && versionValid && sizeValid && shaValid) {
     const anchor = document.getElementById('release-download');
     anchor.href = downloadURL.href;
+    document.querySelectorAll('[data-release-cta]').forEach(link => {
+      link.textContent = english ? 'Download for Mac ↘' : 'Mac용 다운로드 ↘';
+    });
     anchor.hidden = false;
     anchor.rel = 'noopener';
     document.getElementById('download-button').hidden = true;
