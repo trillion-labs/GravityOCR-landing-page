@@ -105,8 +105,8 @@
     if (release.preview) {
       // Honest about what a preview build can and cannot do yet.
       description.textContent = english
-        ? 'Preview build, not yet notarized: macOS asks you to allow it in System Settings ▸ Privacy & Security the first time. The on-device model download opens soon.'
-        : '공증 전 미리보기 빌드입니다. 처음 열 때 시스템 설정 ▸ 개인정보 보호 및 보안에서 허용해야 합니다. 기기 내 모델 다운로드는 곧 열립니다.';
+        ? 'Preview build. The model download opens soon.'
+        : '미리보기 빌드입니다. 모델 다운로드는 곧 열립니다.';
       document.querySelector('.release-status').textContent = english ? 'Preview' : '미리보기';
       anchor.textContent = english ? 'Download preview for Mac' : 'Mac용 미리보기 다운로드';
     } else {
