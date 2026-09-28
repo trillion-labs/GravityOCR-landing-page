@@ -105,8 +105,8 @@
     if (release.preview) {
       // Honest about what a preview build can and cannot do yet.
       description.textContent = english
-        ? 'The GravityOCR model is public. Installing it inside the app opens soon.'
-        : 'GravityOCR 모델은 공개되어 있습니다. 앱 안에서 바로 설치하는 기능은 곧 열립니다.';
+        ? 'In-app model install is coming soon.'
+        : '앱 안에서 모델을 설치하는 기능은 곧 열립니다.';
       document.querySelector('.release-status').textContent = english ? 'Preview' : '미리보기';
       anchor.textContent = english ? 'Download preview for Mac' : 'Mac용 미리보기 다운로드';
     } else {
