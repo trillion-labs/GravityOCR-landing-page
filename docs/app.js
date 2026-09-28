@@ -103,10 +103,10 @@
     document.getElementById('download-button').hidden = true;
     const description = document.getElementById('release-description');
     if (release.preview) {
-      // Not notarized yet: say how to get past Gatekeeper on first open.
+      // Preview build: the app downloads the model itself on first run.
       description.textContent = english
-        ? 'On first open, choose Open Anyway in System Settings ▸ Privacy & Security.'
-        : '처음 열 때 시스템 설정 ▸ 개인정보 보호 및 보안에서 ‘그래도 열기’를 눌러 주세요.';
+        ? 'The model downloads inside the app.'
+        : '모델 다운로드는 앱 안에서 진행됩니다.';
       document.querySelector('.release-status').textContent = english ? 'Preview' : '미리보기';
       anchor.textContent = english ? 'Download preview for Mac' : 'Mac용 미리보기 다운로드';
     } else {
