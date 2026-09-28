@@ -105,8 +105,8 @@
     if (release.preview) {
       // Honest about what a preview build can and cannot do yet.
       description.textContent = english
-        ? 'Preview build. The model download opens soon.'
-        : '미리보기 빌드입니다. 모델 다운로드는 곧 열립니다.';
+        ? 'The model downloads inside the app.'
+        : '모델 다운로드는 앱 안에서 진행됩니다.';
       document.querySelector('.release-status').textContent = english ? 'Preview' : '미리보기';
       anchor.textContent = english ? 'Download preview for Mac' : 'Mac용 미리보기 다운로드';
     } else {
