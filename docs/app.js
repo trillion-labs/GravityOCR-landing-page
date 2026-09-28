@@ -101,11 +101,31 @@
     anchor.hidden = false;
     anchor.rel = 'noopener';
     document.getElementById('download-button').hidden = true;
-    document.getElementById('release-description').textContent = english ? 'Install Gravity on your Mac and open your first document.' : 'Mac에 설치하고, 첫 문서를 열어보세요.';
-    document.querySelector('.release-status').textContent = english ? 'Free download' : '무료 다운로드';
+    const description = document.getElementById('release-description');
+    if (release.preview) {
+      // Honest about what a preview build can and cannot do yet.
+      description.textContent = english
+        ? 'Preview build, not yet notarized: macOS asks you to allow it in System Settings ▸ Privacy & Security the first time. The on-device model download opens soon.'
+        : '공증 전 미리보기 빌드입니다. 처음 열 때 시스템 설정 ▸ 개인정보 보호 및 보안에서 허용해야 합니다. 기기 내 모델 다운로드는 곧 열립니다.';
+      document.querySelector('.release-status').textContent = english ? 'Preview' : '미리보기';
+      anchor.textContent = english ? 'Download preview for Mac' : 'Mac용 미리보기 다운로드';
+    } else {
+      description.textContent = english ? 'Install Gravity on your Mac and open your first document.' : 'Mac에 설치하고, 첫 문서를 열어보세요.';
+      document.querySelector('.release-status').textContent = english ? 'Free download' : '무료 다운로드';
+    }
     const metadata = [`v${release.version}`, release.fileSize, `SHA-256 ${release.sha256.slice(0, 12)}…`];
     const details = document.getElementById('release-details');
     details.textContent = metadata.join(' · ');
+    let notesURL;
+    try { notesURL = new URL(release.releaseNotesUrl); } catch { /* Optional. */ }
+    if (notesURL && notesURL.protocol === 'https:') {
+      const notes = document.createElement('a');
+      notes.href = notesURL.href;
+      notes.target = '_blank';
+      notes.rel = 'noopener noreferrer';
+      notes.textContent = english ? 'Release notes ↗' : '릴리스 노트 ↗';
+      details.append(' · ', notes);
+    }
     details.hidden = !metadata.length;
   }
   document.getElementById('year').textContent = new Date().getFullYear();

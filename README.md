@@ -18,11 +18,14 @@ If the public address changes, update canonical and og:url in `docs/index.html`.
 
 ## Release state
 
-The page currently says **public release pending** and the download is disabled.
-Publishing this website does not mean the macOS application is release-ready.
-Only after licensing, Developer ID signing, notarization and clean-machine
-release gates pass, configure `docs/release.js` with an HTTPS download URL,
-strict SemVer version, file size and the exact 64-character SHA-256.
+`docs/release.js` points at the **0.1.0 preview** DMG on this repository's
+GitHub Releases (`v0.1.0`, marked pre-release). It is ad-hoc signed only: no
+Developer ID signature and no notarization yet, and the on-device model
+download is not open, so the app stops at its setup screen. With
+`preview: true` the page says both things and labels the button as a
+preview. After licensing, Developer ID signing, notarization and
+clean-machine release gates pass, publish the signed DMG, update the URL,
+version, file size and exact 64-character SHA-256, and remove `preview`.
 Incomplete metadata keeps downloads disabled.
 
 The main product images are approved design previews: Korean uses
