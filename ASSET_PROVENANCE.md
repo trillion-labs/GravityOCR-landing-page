@@ -64,3 +64,17 @@ Original fonts, frame dimensions and styling are retained.
 
 - Light: https://www.figma.com/design/etSjdPRPnAAxqKDzz1atQr?node-id=49-2
 - Dark: https://www.figma.com/design/etSjdPRPnAAxqKDzz1atQr?node-id=49-133
+
+## Brand assets (added 2026-09-28)
+
+- `assets/brand/trillion-labs-{logo,symbol}.svg` are the official Trillion Labs
+  marks, copied unmodified from `ocr-monorepo/design/brand/trillion-labs/`
+  (see its README for their source repositories). The `-white` and `-black`
+  variants replace `currentColor` with `#f5f5f7` and `#111115` only, so they
+  keep their colour when downloaded; the paths are unchanged.
+- `assets/brand/gravity-app-icon-1024.png` is the app's `AppIcon-master.png`
+  (1254 px) resized to 1024 px. `favicon-64.png` and `apple-touch-icon.png`
+  are the same icon cropped to its tile and resized.
+- `assets/og-{ko,en}.png` (1200 × 630) are composed from the app icon, the
+  white Trillion Labs logo, the page headline and the product design previews
+  above, rendered with headless Chrome. They are share images, not screenshots.

@@ -120,3 +120,30 @@ html[lang=ko] body{word-break:keep-all;overflow-wrap:break-word}
 /* The research links end the section; give them room before the download band. */
 .research-section{padding-bottom:112px}
 @media(max-width:700px){.research-section{padding-bottom:72px}}
+/* Trillion Labs marks: the official SVG, in the surrounding text colour. */
+.byline{display:flex;align-items:center;color:var(--text-body)}
+.byline svg{display:block;height:20px;width:auto}
+.byline:hover,.footer-company:hover{color:var(--text)}
+footer p{display:flex;align-items:center;gap:14px}
+.footer-company{display:flex;color:var(--muted)}
+.footer-company svg{display:block;height:20px;width:auto}
+/* Brand assets page. */
+.brand-content h2{margin-top:64px}
+.brand-content .brand-lead{margin:0 0 8px}
+.brand-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:20px 0 0}
+.brand-tile{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.brand-tile.wide{grid-column:1/-1}
+.brand-preview{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--text)}
+.brand-preview.light{background:#f5f5f7;color:#111115}
+.brand-preview img{display:block;max-width:100%;height:auto}
+.brand-preview .brand-icon{width:38%}
+.brand-preview .brand-logo{width:62%}
+.brand-preview .brand-symbol{width:15%}
+.brand-preview.photo{aspect-ratio:auto}
+.brand-tile figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:14px 16px;font-size:.8125rem;color:var(--muted);border-top:1px solid var(--line)}
+.brand-tile figcaption b{font-weight:500;color:var(--text)}
+.brand-tile figcaption span{display:flex;gap:14px}
+.brand-tile figcaption a{color:var(--text-body);text-decoration:underline;text-underline-offset:3px}
+.brand-tile figcaption a:hover{color:var(--text)}
+@media(max-width:640px){.brand-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:400px){.byline{display:none}}
