@@ -7,7 +7,7 @@ window.GRAVITY_RELEASE = Object.freeze({
   downloadUrl: "https://github.com/trillion-labs/GravityOCR-landing-page/releases/download/v0.1.0/Gravity-0.1.0.dmg",
   version: "0.1.0",
   fileSize: "3.7 MB",
-  sha256: "4621582b3012f3f4ff804fd28cbc85add0fe24757dcce78de93a94fb768b46c2",
+  sha256: "2ff8c2793014e038d4aff6579b5f23546bb1eef000737d5b3319cb06c3868849",
   preview: true,
   releaseNotesUrl: "https://github.com/trillion-labs/GravityOCR-landing-page/releases/tag/v0.1.0",
   minimumOS: "macOS 14",
