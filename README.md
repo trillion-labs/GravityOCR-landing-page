@@ -35,7 +35,7 @@ The table and equation cards show actual extraction from the sample PDFs in
 `docs/assets/examples/`. Earlier app captures are retained as reference assets.
 See `ASSET_PROVENANCE.md` for their capture details.
 Benchmark numbers are selected development measurements; full conditions live
-in `docs/benchmarks.html` and `docs/en/benchmarks.html`.
+in `docs/benchmarks.html` and `docs/ko/benchmarks.html`.
 Do not commit app binaries, model weights, credentials or private documents.
 
 ## Origin and ownership
@@ -47,11 +47,15 @@ There is no automatic synchronization with the original landing copy.
 
 ## Languages
 
-Korean lives in `docs/index.html`; English lives in `docs/en/index.html`.
-Each language includes its own privacy, terms and open-source pages.
-Use the visible language switch to change languages. Shared CSS, JavaScript,
-release metadata and assets stay in `docs/`; `app.js` uses the HTML language
-to localize dynamic text. Update both languages together.
+English is the default and lives at the root (`docs/index.html`); Korean
+lives in `docs/ko/`. Each language includes its own privacy, terms,
+benchmark and open-source pages. An inline script on each English page sends
+visitors to the Korean counterpart when their saved choice is Korean, or, with
+no saved choice, when the browser's first language is Korean. Clicking the
+language switch saves the choice in `localStorage` (`gravity-lang`).
+`docs/en/` only holds redirects so old `/en/` links keep working.
+Shared CSS, JavaScript, release metadata and assets stay in `docs/`; `app.js`
+uses the HTML language to localize dynamic text. Update both languages together.
 Each page has its own canonical URL and reciprocal hreflang links.
 
 ## Color hierarchy
