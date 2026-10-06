@@ -21,12 +21,16 @@ for (const name of pages) {
       location: {replace: () => assert.fail('Root page redirected')}
     });
   }
-  for (const lang of ['ko', 'en']) {
+  const english = fs.readFileSync(path.join(root, 'en', name), 'utf8');
+  assert.match(english, /<html lang="en">/);
+  assert.doesNotMatch(english, /location\.replace|http-equiv="refresh"|gravity-lang|[가-힣]/);
+  assert.equal(english, html.replace(/((?:href|src)=")((?:assets\/|styles\.css|app\.js|release\.js)[^"]*)(")/g, '$1../$2$3'));
+  for (const lang of ['ko']) {
     const legacy = fs.readFileSync(path.join(root, lang, name), 'utf8');
-    const destination = name === 'index.html' ? '../' : `../${name}`;
+    const destination = name === 'index.html' ? '../en/' : `../en/${name}`;
     assert.ok(legacy.includes(`content="0; url=${destination}"`)); // JS-disabled fallback.
     assert.ok(legacy.includes(`<a href="${destination}">`));
-    assert.ok(legacy.includes(`rel="canonical" href="${canonical}"`));
+    assert.ok(legacy.includes(`rel="canonical" href="${base}en/${name === 'index.html' ? '' : name}"`));
     assert.match(legacy, /name="robots" content="noindex"/);
     for (const blocked of [false, true]) {
       let redirected, preference = 'ko';
@@ -37,10 +41,10 @@ for (const name of pages) {
       for (const [, source] of legacy.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)) vm.runInNewContext(source, ctx);
       assert.equal(redirected, destination + '?from=qr#download');
       const target = new URL(redirected, base + lang + '/' + name);
-      assert.equal(target.href, canonical + '?from=qr#download');
+      assert.equal(target.href, base + 'en/' + (name === 'index.html' ? '' : name) + '?from=qr#download');
       if (!blocked) assert.equal(preference, 'en');
     }
   }
 }
 assert.equal(fs.readFileSync(path.join(root,'CNAME'),'utf8').trim(),'gravityocr.trillionlabs.co');
-console.log('English root + 10 legacy redirects passed; Korean settings, blocked storage, query/hash and no-JS fallbacks covered.');
+console.log('Five /ko/ → /en/ redirects passed; query/hash, storage failure and no-JS fallbacks covered.');

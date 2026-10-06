@@ -51,12 +51,15 @@ The site is English-only. The homepage and supporting pages live directly in
 `docs/`. Browser language and previous language choices do not affect routing.
 There is no language switch or Korean content page to maintain.
 
-Both `docs/ko/` and `docs/en/` contain only compatibility redirects to the
-corresponding root page. Keep these files so existing links work. They preserve
-query strings and fragments; a normal link and meta refresh also work without
-JavaScript. The redirect sets the old `gravity-lang` preference to `en` only to
-prevent an older cached homepage from sending Korean browsers back to `/ko/`.
-The current English pages neither read nor write this preference.
+`docs/ko/` redirects directly to the corresponding `/en/` page, preserving
+query strings and fragments. `/en/` serves actual English content and does not
+redirect to `/`. The root continues to serve English for the existing QR URL.
+`tools/version-assets.py` also synchronizes `/en/` from the root pages with
+adjusted asset paths, so there is only one content source to edit.
+
+The Korean redirects include a normal link and meta refresh for browsers
+without JavaScript. They set the old `gravity-lang` preference to `en` only for
+compatibility with cached older pages; current English pages ignore it.
 
 `docs/CNAME` keeps `gravityocr.trillionlabs.co` attached to this GitHub Pages
 site. Preserve the repository name and Pages configuration: the printed QR
@@ -106,5 +109,5 @@ cancels an active crossfade when the setting changes.
 ## Routing verification
 
 Run `node tools/check-routing.cjs` before changing locale compatibility routes.
-It checks all English pages, both sets of legacy URLs, blocked storage,
+It checks all English pages, the `/ko/` redirects and real `/en/` pages, blocked storage,
 query/fragment preservation, and the no-JavaScript fallback.
