@@ -1,6 +1,9 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><title>Gravity</title>
-<link rel="canonical" href="https://trillion-labs.github.io/GravityOCR-landing-page/benchmarks.html">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gravity — Redirecting</title><link rel="canonical" href="https://gravityocr.trillionlabs.co/benchmarks.html">
 <meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=../benchmarks.html">
-<script>location.replace('../benchmarks.html'+location.search+location.hash)</script></head>
-<body><a href="../benchmarks.html">Gravity</a></body></html>
+<script>
+// Stop an older cached homepage from redirecting Korean browsers back here.
+try { localStorage.setItem('gravity-lang', 'en'); } catch (_) {}
+location.replace('../benchmarks.html' + location.search + location.hash);
+</script></head><body><a href="../benchmarks.html">Continue to Gravity</a></body></html>

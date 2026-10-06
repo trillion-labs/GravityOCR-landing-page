@@ -1,6 +1,5 @@
 (() => {
   'use strict';
-  const english = document.documentElement.lang === 'en';
   const image = document.getElementById('product-image');
   const themeButtons = [...document.querySelectorAll('[data-theme]')];
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -24,7 +23,7 @@
   const setTheme = theme => {
     if (cancelPending) cancelPending();
     const light = theme === 'light';
-    const url = new URL(`${english ? 'gravity-preview-en' : 'gravity'}-${light ? 'light' : 'dark'}.png`, image.src).href;
+    const url = new URL(`gravity-preview-en-${light ? 'light' : 'dark'}.png`, image.src).href;
     if (image.src === url) return;
     const pending = new Image();
     let settled = false;
@@ -44,7 +43,7 @@
       finishFade();
       previousImage.src = image.src;
       image.src = url;
-      image.alt = english ? `Gravity ${light ? 'light' : 'dark'} English design preview, with Cities in Motion.pdf and its extracted English text side by side.` : `Gravity ${light ? '라이트' : '다크'} 디자인 미리보기. 원본 문서와 추출 텍스트가 나란히 보입니다.`;
+      image.alt = `Gravity ${light ? 'light' : 'dark'} English design preview, with Cities in Motion.pdf and its extracted English text side by side.`;
       previewLink.href = url;
       themeButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.theme === theme)));
       if (!motion.matches && previousImage.animate) {
@@ -96,7 +95,7 @@
     const anchor = document.getElementById('release-download');
     anchor.href = downloadURL.href;
     document.querySelectorAll('[data-release-cta]').forEach(link => {
-      link.textContent = english ? 'Download' : '다운로드';
+      link.textContent = 'Download';
     });
     anchor.hidden = false;
     anchor.rel = 'noopener';
@@ -104,14 +103,12 @@
     const description = document.getElementById('release-description');
     if (release.preview) {
       // Preview build: the app downloads the model itself on first run.
-      description.textContent = english
-        ? 'The model downloads inside the app.'
-        : '모델 다운로드는 앱 안에서 진행됩니다.';
-      document.querySelector('.release-status').textContent = english ? 'Preview' : '미리보기';
-      anchor.textContent = english ? 'Download preview for Mac' : 'Mac용 미리보기 다운로드';
+      description.textContent = 'The model downloads inside the app.';
+      document.querySelector('.release-status').textContent = 'Preview';
+      anchor.textContent = 'Download preview for Mac';
     } else {
-      description.textContent = english ? 'Install Gravity on your Mac and open your first document.' : 'Mac에 설치하고, 첫 문서를 열어보세요.';
-      document.querySelector('.release-status').textContent = english ? 'Free download' : '무료 다운로드';
+      description.textContent = 'Install Gravity on your Mac and open your first document.';
+      document.querySelector('.release-status').textContent = 'Free download';
     }
     const metadata = [`v${release.version}`, release.fileSize, `SHA-256 ${release.sha256.slice(0, 12)}…`];
     const details = document.getElementById('release-details');
@@ -123,7 +120,7 @@
       notes.href = notesURL.href;
       notes.target = '_blank';
       notes.rel = 'noopener noreferrer';
-      notes.textContent = english ? 'Release notes ↗' : '릴리스 노트 ↗';
+      notes.textContent = 'Release notes ↗';
       details.append(' · ', notes);
     }
     details.hidden = !metadata.length;

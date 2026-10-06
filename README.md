@@ -2,7 +2,7 @@
 
 Official Gravity OCR product landing page by Trillion Labs.
 
-**Website:** https://trillion-labs.github.io/GravityOCR-landing-page/
+**Website:** https://gravityocr.trillionlabs.co/
 
 ## Editing and deployment
 
@@ -28,14 +28,14 @@ clean-machine release gates pass, publish the signed DMG, update the URL,
 version, file size and exact 64-character SHA-256, and remove `preview`.
 Incomplete metadata keeps downloads disabled.
 
-The main product images are approved design previews: Korean uses
-`gravity-{dark,light}.png`; English uses the localized Figma exports
-`gravity-preview-en-{dark,light}.png`.
+The main product images are approved design previews: the site uses localized Figma exports
+`gravity-preview-en-{dark,light}.png`. Original Korean assets are retained as
+reference files, not rendered by the site.
 The table and equation cards show actual extraction from the sample PDFs in
 `docs/assets/examples/`. Earlier app captures are retained as reference assets.
 See `ASSET_PROVENANCE.md` for their capture details.
 Benchmark numbers are selected development measurements; full conditions live
-in `docs/benchmarks.html` and `docs/ko/benchmarks.html`.
+in `docs/benchmarks.html`.
 Do not commit app binaries, model weights, credentials or private documents.
 
 ## Origin and ownership
@@ -45,18 +45,23 @@ Future landing-page edits and publishing belong in this repository;
 the application repository continues to own app code and release artifacts.
 There is no automatic synchronization with the original landing copy.
 
-## Languages
+## Language and legacy addresses
 
-English is the default and lives at the root (`docs/index.html`); Korean
-lives in `docs/ko/`. Each language includes its own privacy, terms,
-benchmark and open-source pages. An inline script on each English page sends
-visitors to the Korean counterpart when their saved choice is Korean, or, with
-no saved choice, when the browser's first language is Korean. Clicking the
-language switch saves the choice in `localStorage` (`gravity-lang`).
-`docs/en/` only holds redirects so old `/en/` links keep working.
-Shared CSS, JavaScript, release metadata and assets stay in `docs/`; `app.js`
-uses the HTML language to localize dynamic text. Update both languages together.
-Each page has its own canonical URL and reciprocal hreflang links.
+The site is English-only. The homepage and supporting pages live directly in
+`docs/`. Browser language and previous language choices do not affect routing.
+There is no language switch or Korean content page to maintain.
+
+Both `docs/ko/` and `docs/en/` contain only compatibility redirects to the
+corresponding root page. Keep these files so existing links work. They preserve
+query strings and fragments; a normal link and meta refresh also work without
+JavaScript. The redirect sets the old `gravity-lang` preference to `en` only to
+prevent an older cached homepage from sending Korean browsers back to `/ko/`.
+The current English pages neither read nor write this preference.
+
+`docs/CNAME` keeps `gravityocr.trillionlabs.co` attached to this GitHub Pages
+site. Preserve the repository name and Pages configuration: the printed QR
+points at the old GitHub Pages root, which GitHub redirects to this domain.
+Canonical and Open Graph URLs use the custom domain.
 
 ## Color hierarchy
 
@@ -67,7 +72,7 @@ Each page has its own canonical URL and reciprocal hreflang links.
 - Charts: gray denotes the reference, white the Gravity result. Labels retain the comparison meaning without relying on color alone.
 - Selection uses a raised dark surface and an outline; a solid white fill is reserved for primary actions. Unavailable downloads remain outlined and muted.
 
-The shared stylesheet applies these roles to both Korean and English pages.
+The shared stylesheet applies these roles throughout the English site.
 
 The hero has one accent exception: the image-to-text line slowly shifts between
 pale blue and lavender over 12 seconds; the local-processing line stays near-white.
@@ -97,3 +102,9 @@ Sections enter once in 550 ms; chart bars grow once in 750 ms. IntersectionObser
 unobserves each element after entry. Content stays visible if JavaScript or the
 observer is unavailable. Reduced-motion disables these animations and also
 cancels an active crossfade when the setting changes.
+
+## Routing verification
+
+Run `node tools/check-routing.cjs` before changing locale compatibility routes.
+It checks all English pages, both sets of legacy URLs, blocked storage,
+query/fragment preservation, and the no-JavaScript fallback.
